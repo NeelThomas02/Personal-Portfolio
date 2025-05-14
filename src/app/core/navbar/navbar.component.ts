@@ -2,6 +2,7 @@ import { Component }         from '@angular/core';
 import { CommonModule }      from '@angular/common';
 import { RouterModule }      from '@angular/router';
 import { MaterialModule }    from '../../shared/material.module';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,8 @@ import { MaterialModule }    from '../../shared/material.module';
   imports: [
     CommonModule,
     RouterModule,
-    MaterialModule
+    MaterialModule,
+    MatSlideToggleModule
   ],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']

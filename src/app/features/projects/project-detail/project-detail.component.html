@@ -1,0 +1,48 @@
+<ng-container *ngIf="project; else notFound">
+  <mat-card class="m-4 p-4">
+    <mat-card-header>
+      <mat-card-title>{{ project.title }}</mat-card-title>
+      <mat-card-subtitle>{{ project.summary }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <img
+      mat-card-image
+      [src]="project.image"
+      alt="{{ project.title }}"
+      loading="lazy" />
+
+    <mat-card-content>
+      <p>{{ project.details }}</p>
+      <h3>Tech Stack</h3>
+      <mat-chip-grid>
+        <mat-chip-row *ngFor="let tech of project.tech">
+          {{ tech }}
+        </mat-chip-row>
+      </mat-chip-grid>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <a
+        mat-button
+        color="primary"
+        *ngIf="project.repoUrl"
+        [href]="project.repoUrl"
+        target="_blank">
+        View Code
+      </a>
+      <a
+        mat-button
+        color="accent"
+        *ngIf="project.liveUrl"
+        [href]="project.liveUrl"
+        target="_blank">
+        Live Demo
+      </a>
+      <button mat-button routerLink="/projects">Back to Projects</button>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>
+
+<ng-template #notFound>
+  <p class="m-4">Project not found.</p>
+</ng-template>

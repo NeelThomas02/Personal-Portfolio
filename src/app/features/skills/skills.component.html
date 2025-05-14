@@ -1,14 +1,11 @@
-<mat-card class="m-4 p-4">
+<mat-card class="skills-card">
   <h2>My Skills</h2>
-  <p>Here are some of the languages, frameworks, and tools I work with:</p>
-
-  <!-- use the new MDC chip grid/row API -->
-  <mat-chip-grid>
-    <mat-chip-row>Angular</mat-chip-row>
-    <mat-chip-row>TypeScript</mat-chip-row>
-    <mat-chip-row>Node.js</mat-chip-row>
-    <mat-chip-row>Express</mat-chip-row>
-    <mat-chip-row>MongoDB</mat-chip-row>
-    <mat-chip-row>Docker</mat-chip-row>
-  </mat-chip-grid>
+  <mat-grid-list cols="4" rowHeight="100px" gutterSize="16px">
+    <mat-grid-tile *ngFor="let skill of skills">
+      <div class="skill-tile">
+        <mat-icon class="skill-icon">{{ skill.icon }}</mat-icon>
+        <div class="skill-name">{{ skill.name }}</div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
 </mat-card>
