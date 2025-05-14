@@ -1,0 +1,18 @@
+<!-- src/app/features/experience/experience.component.html -->
+<ng-container *ngIf="experiences.length; else noExp">
+  <mat-card *ngFor="let exp of experiences" class="m-4 p-4">
+    <mat-card-header>
+      <mat-card-title>{{ exp.role }} &#64; {{ exp.company }}</mat-card-title>
+      <mat-card-subtitle>{{ exp.dates }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <ul>
+        <li *ngFor="let bullet of exp.responsibilities">{{ bullet }}</li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+</ng-container>
+
+<ng-template #noExp>
+  <p class="m-4">No experience to display yet.</p>
+</ng-template>
